@@ -1,0 +1,10 @@
+#game {
+    width: 100px;
+    margin: 240px auto;
+    height:300px;
+  }
+  .elements {
+    width: 100px;
+    display:inline-block;
+    font-size: 1000px;
+  }
