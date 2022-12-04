@@ -9,7 +9,7 @@ let answerId=document.getElementById("answer");
 
 var score = 0;
 
-let actualAnswer;
+let actualAnswer;//actual answer
 let inputAnswer;
 
 let h = ["+", "-", "*", "/"];
