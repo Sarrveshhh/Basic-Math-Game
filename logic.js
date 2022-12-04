@@ -9,6 +9,9 @@ let answerId=document.getElementById("answer");
 
 var score = 0;
 
+let actualAnswer;
+let inputAnswer;
+
 let h = ["+", "-", "*", "/"];
 
 nextId.addEventListener("click",function(){
@@ -20,9 +23,27 @@ nextId.addEventListener("click",function(){
 });
 
 subId.addEventListener("click", function(){
-    let actualAnswer = parseInt(n1Id.textContent + n2Id.textContent);
-    let inputAnswer = parseInt(inpId.value);
-    
+    if(sId.innerText===h[0]){
+         actualAnswer = parseInt(n1Id.textContent) + parseInt(n2Id.textContent);
+         inputAnswer = parseInt(inpId.value);
+    }
+    else  if(sId.innerText===h[1])
+    {
+         actualAnswer = parseInt(n1Id.textContent) - parseInt(n2Id.textContent);
+         inputAnswer = parseInt(inpId.value);
+    }
+    else  if(sId.innerText===h[2])
+    {
+         actualAnswer = parseInt(n1Id.textContent) * parseInt(n2Id.textContent);
+         inputAnswer = parseInt(inpId.value);
+    }
+    else if(sId.innerText===h[3])
+    {
+         actualAnswer = parseInt(n1Id.textContent) / parseInt(n2Id.textContent);
+         inputAnswer = parseInt(inpId.value);
+    }
+    console.log(actualAnswer);
+    console.log(inputAnswer);
     if(actualAnswer === inputAnswer){
         score++;
     }
