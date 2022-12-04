@@ -5,6 +5,20 @@ let sId=document.getElementById("sign");
 let subId = document.getElementById("submit");
 let inpId=document.getElementById("inp");
 let answerId=document.getElementById("answer");
+let timerId = document.getElementById("timer");
+const myBody = document.body.innerHTML
+
+let time = parseInt(timerId.innerText);
+
+setInterval(timerChange, 1000);
+function timerChange(){
+     if(time === 0){
+          //window.location='score.html';
+          document.body.innerHTML = `Your final score is ${score}`;
+     }
+     time--;
+     timerId.innerText = time;
+}
 
 var score = 0;
 
@@ -13,7 +27,9 @@ let inputAnswer;
 
 let h = ["+", "-", "*", "/"];
 
-
+function countdown(){
+     timerId
+}
 subId.addEventListener("click", function(){
     if(sId.innerText===h[0]){
          actualAnswer = parseInt(n1Id.textContent) + parseInt(n2Id.textContent);
@@ -31,8 +47,8 @@ subId.addEventListener("click", function(){
     }
     else if(sId.innerText===h[3])
     {
-         actualAnswer = parseInt(n1Id.textContent) / parseInt(n2Id.textContent);
-         inputAnswer = parseInt(inpId.value);
+         actualAnswer = Math.floor(parseInt(n1Id.textContent) / parseInt(n2Id.textContent));
+         inputAnswer = Math.floor(parseInt(inpId.value));
     }
     console.log(actualAnswer);
     console.log(inputAnswer);
