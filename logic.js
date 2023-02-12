@@ -13,7 +13,6 @@ let time = parseInt(timerId.innerText);
 setInterval(timerChange, 1000);
 function timerChange(){
      if(time === 0){
-          //window.location='score.html';
           document.body.innerHTML = `Your final score is ${score}`;
      }
      time--;
@@ -31,22 +30,22 @@ function countdown(){
      timerId
 }
 subId.addEventListener("click", function(){
-    if(sId.innerText===h[0]){
-         actualAnswer = parseInt(n1Id.textContent) + parseInt(n2Id.textContent);
-         inputAnswer = parseInt(inpId.value);
-    }
-    else  if(sId.innerText===h[1])
-    {
+     if(sId.innerText===h[0]){
+          actualAnswer = parseInt(n1Id.textContent) + parseInt(n2Id.textContent);
+          inputAnswer = parseInt(inpId.value);
+     }
+     else  if(sId.innerText===h[1])
+     {
          actualAnswer = parseInt(n1Id.textContent) - parseInt(n2Id.textContent);
          inputAnswer = parseInt(inpId.value);
-    }
-    else  if(sId.innerText===h[2])
-    {
-         actualAnswer = parseInt(n1Id.textContent) * parseInt(n2Id.textContent);
-         inputAnswer = parseInt(inpId.value);
-    }
-    else if(sId.innerText===h[3])
-    {
+     }
+     else  if(sId.innerText===h[2])
+     {
+          actualAnswer = parseInt(n1Id.textContent) * parseInt(n2Id.textContent);
+          inputAnswer = parseInt(inpId.value);
+     }
+     else if(sId.innerText===h[3])
+     {
          actualAnswer = Math.floor(parseInt(n1Id.textContent) / parseInt(n2Id.textContent));
          inputAnswer = Math.floor(parseInt(inpId.value));
     }
@@ -54,11 +53,17 @@ subId.addEventListener("click", function(){
     console.log(inputAnswer);
     if(actualAnswer === inputAnswer){
         score++;
-    }
-    answerId.innerText = score;
-    n1Id.textContent=Math.floor(Math.random()*50);
-    n2Id.textContent=Math.floor(Math.random()*50);
-    let operator = h[Math.floor(Math.random()*h.length)];
-    sId.innerText = operator;
-    
+     }
+     answerId.innerText = score;
+     n1Id.textContent=Math.floor(Math.random()*50);
+     n2Id.textContent=Math.floor(Math.random()*50);
+     let operator = h[Math.floor(Math.random()*h.length)];
+     sId.innerText = operator;     
+});
+
+// Submits answer when u click enter.
+inpId.addEventListener('keypress', (event) => {
+     if(event.key == "Enter"){
+          document.getElementById("submit").click();
+     }
 });
